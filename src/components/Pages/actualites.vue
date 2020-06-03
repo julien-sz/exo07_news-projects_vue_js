@@ -24,7 +24,7 @@
             </div>
 
         </div>
-        <crousti-news :itemsToShow=3 :newsData="Ndata"></crousti-news>
+        <crousti-news :itemsToShow=12 :newsData="Ndata"></crousti-news>
         <footer-page> </footer-page>
     </div>
 
@@ -53,16 +53,16 @@
                 },
                 Ndata:[
                     {
-                    id: "1",
-                    image: "/news/images/fleur-fete-meres.jpg",
-                    altImg: "Le menu pour la fetes des mères 2020",
-                    date: "2020-05-30",
-                    title: "menu fête des Mères",
-                    text: "Le menu spécial fête des mères 2020. Disponible les 6 et 7 juin",
-                    urlLink: "/news/pdf/fete-des-meres-2020.pdf",
-                    typeLink: "pdf",
-                    textLin: "Découvrir le menu spécial"
-                },
+                        id: "1",
+                        image: "/news/images/fleur-fete-meres.jpg",
+                        altImg: "Le menu pour la fetes des mères 2020",
+                        date: "2020-05-30",
+                        title: "menu fête des Mères",
+                        text: "Le menu spécial fête des mères 2020. Disponible les 6 et 7 juin",
+                        urlLink: "/news/pdf/fete-des-meres-2020.pdf",
+                        typeLink: "pdf",
+                        textLin: "Découvrir le menu spécial"
+                    },
                     {
                         id: "2",
                         image: "/news/images/covid19.jpg",

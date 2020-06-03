@@ -16,7 +16,9 @@
                     </v-icon>
                 </div>
             </div>
+            <crousti-news :itemsToShow=3 :newsData="Ndata"></crousti-news>
         </full-page>
+
         <footer-page> </footer-page>
     </div>
 </template>
@@ -24,11 +26,13 @@
 <script>
     import * as easings from 'vuetify/es5/services/goto/easing-patterns'
     import FooterPage from './footerPage'
+    import croustiNews from './croustiNews';
 
     export default {
         name: "accueil",
         components : {
-            FooterPage
+            FooterPage,
+            croustiNews,
         },
         data() {
             return {

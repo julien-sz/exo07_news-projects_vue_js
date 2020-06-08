@@ -29,7 +29,7 @@
                            <div class="media-footer sr-up-td4" v-if="news.typeLink != 'none'">
                                 <div class="btns-action sr-up-td3 text-primary">
                                     <a class="btn btn-normal btn-white spaceTop" @click="goToLink(news.urlLink,news.typeLink)">
-                                        <span class="icon" v-if="news.typeLink == 'pdf'"><img src="public/img/pdf-icone.svg" width="35px"></span>
+                                        <span class="icon" v-if="news.typeLink == 'pdf'"><img src="img/pdf-icone.svg" width="35px"></span>
                                         <span class="text">{{news.textLink}}</span>
                                         <span class="icon" v-if="news.typeLink == 'internal' || news.typeLink == 'external'">
                                             <span class="arrow-right"></span>

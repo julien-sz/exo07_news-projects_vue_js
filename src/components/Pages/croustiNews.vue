@@ -13,11 +13,11 @@
                             <div class="media-img">
                                 <div class="mask"></div>
                                 <img :src="news.image" :alt="news.altImg" class="img-block" style="display: none;">
-                                <div class="img" :style="{ backgroundImage: 'url(' + news.img + ')' }" :alt="news.altImg"></div>
+                                <div class="img" :style="{ backgroundImage: 'url(' + news.image + ')' }" :alt="news.altImg"></div>
                             </div>
                             <div class="media-body">
                                 <a href="#">
-                                    <h5 class="sr-up-td1">{{ formatDate(news.date) }}</h5>
+                                    <h5 class="sr-up-td1">{{ news.date }}</h5>
                                     <h2 class="sr-up-td2 display-6 mt-5 mb-5">{{ news.title }}</h2>
                                 </a>
                                 <div class="desc">
@@ -26,12 +26,12 @@
                                     </p>
                                 </div>
                             </div>
-                           <div class="media-footer sr-up-td4" v-if="news.typeLink !== 'none'">
+                           <div class="media-footer sr-up-td4" v-if="news.typeLink != 'none'">
                                 <div class="btns-action sr-up-td3 text-primary">
                                     <a class="btn btn-normal btn-white spaceTop" @click="goToLink(news.urlLink,news.typeLink)">
-                                        <span class="icon" v-if="news.typeLink === 'pdf'"><img src="public/img/pdf-icone.svg" width="35px"></span>
+                                        <span class="icon" v-if="news.typeLink == 'pdf'"><img src="public/img/pdf-icone.svg" width="35px"></span>
                                         <span class="text">{{news.textLink}}</span>
-                                        <span class="icon" v-if="news.typeLink === 'internal' || news.typeLink === 'external'">
+                                        <span class="icon" v-if="news.typeLink == 'internal' || news.typeLink == 'external'">
                                             <span class="arrow-right"></span>
                                         </span>
                                     </a>
@@ -57,11 +57,6 @@
 
             afterLoad() {
                 console.log('After load')
-            },
-
-            formatDate(dateEvent) {
-                moment.locale('fr');
-                return moment(dateEvent).format('LL');
             },
 
             goToLink(urlLink, typeLink) {

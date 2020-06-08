@@ -26,10 +26,10 @@
                                     </p>
                                 </div>
                             </div>
-                           <div class="media-footer sr-up-td4" v-if="news.urlType != 'none'">
+                           <div class="media-footer sr-up-td4" v-if="news.urlType !== 'none'">
                                 <div class="btns-action sr-up-td3 text-primary">
                                     <a class="btn btn-normal btn-white spaceTop" @click="goToLink(news.urlLink,news.urlType)">
-                                        <span class="icon" v-if="news.typeLink == 'pdf'"><img src="public/img/pdf-icone.svg" width="35px"></span>
+                                        <span class="icon" v-if="news.typeLink === 'pdf'"><img src="public/img/pdf-icone.svg" width="35px"></span>
                                         <span class="text">{{news.textLink}}</span>
                                         <span class="icon" v-if="news.typeLink === 'internal' || news.typeLink === 'external'">
                                             <span class="arrow-right"></span>
@@ -59,12 +59,12 @@
                 console.log('After load')
             },
 
-            formatDate(dateEvent){
+            formatDate(dateEvent) {
                 moment.locale('fr');
                 return moment(dateEvent).format('LL');
             },
 
-            goToLink(urlLink, typeLink){
+            goToLink(urlLink, typeLink) {
                 switch(typeLink) {
                     case 'pdf':
                         window.open(news.urlLink, '_blank');

@@ -17,7 +17,7 @@
                             </div>
                             <div class="media-body">
                                 <a href="#">
-                                    <h5 class="sr-up-td1">{{ news.date }}</h5>
+                                    <h5 class="sr-up-td1">{{ formatDate(news.date) }}</h5>
                                     <h2 class="sr-up-td2 display-6 mt-5 mb-5">{{ news.title }}</h2>
                                 </a>
                                 <div class="desc">
@@ -26,21 +26,16 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="media-footer sr-up-td4">
+                           <div class="media-footer sr-up-td4" v-if="news.urlType != 'none'">
                                 <div class="btns-action sr-up-td3 text-primary">
-                                    <a href="#" class="btn btn-normal btn-white spaceTop">
-                                        <span class="text">Détails</span>
-                                        <span class="icon">
+                                    <a class="btn btn-normal btn-white spaceTop" @click="goToLink(news.urlLink,news.urlType)">
+                                        <span class="icon" v-if="news.typeLink == 'pdf'"><img src="public/img/pdf-icone.svg" width="35px"></span>
+                                        <span class="text">{{news.textLink}}</span>
+                                        <span class="icon" v-if="news.typeLink === 'internal' || news.typeLink === 'external'">
                                             <span class="arrow-right"></span>
                                         </span>
                                     </a>
-                                </div><!--btns-action-->
-                                <div class="btns-action sr-up-td3 text-primary">
-                                    <a href="" class="btn btn-normal btn-white spaceTop">
-                                        <span class="icon"><img src="img/pdf-icone.svg" width="35px"></span>
-                                        <span class="text">PDF</span>
-                                    </a>
-                                </div><!--btns-action-->
+                                </div>
                             </div>
                         </div>
                         <!-- an item -->
@@ -58,8 +53,32 @@
     export default {
         name: "croustiNews",
         props: ['newsData', 'itemsToShow'],
-    }
+        methods: {
 
+            afterLoad() {
+                console.log('After load')
+            },
+
+            formatDate(dateEvent){
+                moment.locale('fr');
+                return moment(dateEvent).format('LL');
+            },
+
+            goToLink(urlLink, typeLink){
+                switch(typeLink) {
+                    case 'pdf':
+                        window.open(news.urlLink, '_blank');
+                        break;
+                    case 'internal':
+                        this.$router.push({ path:news.urlLink });
+                        break;
+                    case 'external':
+                        window.open(news.urlLink, '_blank');
+                        break;
+                }
+            }
+        },
+    }
 </script>
 
 <style>

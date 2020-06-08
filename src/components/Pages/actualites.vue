@@ -61,7 +61,7 @@
                         text: "Le menu spécial fête des mères 2020. Disponible les 6 et 7 juin",
                         urlLink: "/news/pdf/fete-des-meres-2020.pdf",
                         typeLink: "pdf",
-                        textLin: "Découvrir le menu spécial"
+                        textLink: "Découvrir le menu spécial"
                     },
                     {
                         id: "2",

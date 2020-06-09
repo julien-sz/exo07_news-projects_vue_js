@@ -17,7 +17,7 @@
                             </div>
                             <div class="media-body">
                                 <a href="#">
-                                    <h5 class="sr-up-td1">{{ news.date }}</h5>
+                                    <h5 class="sr-up-td1">{{ formatDate(news.date) }}</h5>
                                     <h2 class="sr-up-td2 display-6 mt-5 mb-5">{{ news.title }}</h2>
                                 </a>
                                 <div class="desc">
@@ -27,14 +27,15 @@
                                 </div>
                             </div>
                            <div class="media-footer sr-up-td4" v-if="news.typeLink != 'none'">
-                                <div class="btns-action sr-up-td3 text-primary">
-                                    <a class="btn btn-normal btn-white spaceTop" @click="goToLink(news.urlLink,news.typeLink)">
+                                <div class="btns-action sr-up-td3 text-primary" @click="goToLink(news.urlLink,news.typeLink)">
+                                     <div class="btn btn-normal btn-white spaceTop">
                                         <span class="icon" v-if="news.typeLink == 'pdf'"><img src="img/pdf-icone.svg" width="35px"></span>
                                         <span class="text">{{news.textLink}}</span>
                                         <span class="icon" v-if="news.typeLink == 'internal' || news.typeLink == 'external'">
                                             <span class="arrow-right"></span>
                                         </span>
-                                    </a>
+                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -50,6 +51,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
     export default {
         name: "croustiNews",
         props: ['newsData', 'itemsToShow'],
@@ -57,6 +60,11 @@
 
             afterLoad() {
                 console.log('After load')
+            },
+
+            formatDate(dateEvent){
+                moment.locale('fr');         // fr
+                return moment(dateEvent).format('LL');  // Jun 2, 2020 11:44 AM
             },
 
             goToLink(urlLink, typeLink) {
